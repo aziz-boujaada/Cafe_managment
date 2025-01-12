@@ -188,6 +188,7 @@ button:hover {
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+    position: relative;
 }
 
 /*Menu categories tabs */
@@ -200,34 +201,44 @@ button:hover {
 }
 
 /*styling tabs*/
-.tabs {
-    background-color: var(--black-color);
-    color: var(--primary-color);
+.Juices_tab ,.coffees_tab {
+    background-color: var(--primary-color);
+    color: var(--black-color);
     padding: 0.6rem;
     width: 100px;
     text-align: center;
     border-radius: var(--border-radius);
     cursor: pointer;
-    transition: var(--transition);
+    transition: var(--transition) ease-in;
 }
-
-.tabs:hover {
-    background-color: var(--primary-color);
-    color: var(--black-color);
+.active_tab{
+    background-color: var(--black-color);
+    color: var(--primary-color);
     transform: scale(1.03);
+}
+.menu_visibility{
+   display: none;
 }
 
 /*coffee product styling*/
-.coffee_products {
+.coffee_products{
     display: flex;
     justify-content: space-around;
     margin-top: 1rem;
     padding: 2rem;
-
     border-radius: 0 30px 0 30px;
+    transition: opacity 0.6s ease-in ;
+   
+}
+.Juices_products{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity var(--transition) ease-in ;
 }
 
-.coffee_cards {
+.products_cards {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 1rem;
@@ -296,7 +307,7 @@ button:hover {
     border-radius: 50%;
 }
 
-.sale_show {
+.sale_hide {
     display: none;
 }
 
@@ -318,6 +329,9 @@ button:hover {
 }
 .product_sale .cancel_sale button:hover{
     color: var(--font-color);
+}
+.cancel_btn_visibility{
+    display: none;
 }
 
 .total_display {
