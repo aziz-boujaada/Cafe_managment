@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--meta-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="Description" content="Cafe Anisette management system" />
+    <meta
+      name="keywords"
+      content="cafe,  cafe anisette, cafe anisette management system, cafe anisette management"
+    />
+    <meta name="author" content="Aiz Ze Boujaada" />
+
+    <!--links-->
+    <!--link to css file-->
+    <link rel="stylesheet" href="Anisette.css" />
+    <link rel="stylesheet" href="responsive.css" />
+    <!--link to font awesome to get icons-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css "
+    />
+    <!--fav icon -->
+    <link rel="icon" href="ticket_images/icons8-lion-96.png" type="image/png" />
+
+    <!--fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Cafe Anisette | management system</title>
+  </head>
+
+  
+  <body>
+    <!--HEADER-->
+    <header id="header">
+      <!--cafe logo-->
+      <div class="cafe_logo">
+        <img src="cafe_images/cafe_anisette_logo.png" alt="cafe anisette logo " />
+        <span>Cafe Anisette</span>
+      </div>
+      <!--open mobile navbar-->
+      <div class="mobile_navbar">
+        <div class="open_nav">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+      <!--navigation list-->
+      <div class="nav_list show_list">
+        <!--nav list -->
+        <ul>
+          <!--coles mobile navbar-->
+          <div class="mobile_navbar">
+            <div class="close_nav">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+          </div>
+          <li><a href="index.html">About</a></li>
+          <li><a href="pruducts.html">Products</a></li>
+          <li>
+            <a href="statistics.html" class="active" id="statistics_link"
+              >Statistics</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <section id="statistics">
+        <div class="statistics_box">
+          <div id="daily_total_element"></div>
+          <div class="products_statistics">aziz</div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src= "JS/statisticts.js" defer></script>
+  </body>
+</html>
+ 

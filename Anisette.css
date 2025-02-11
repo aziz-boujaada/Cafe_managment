@@ -201,7 +201,8 @@ button:hover {
 }
 
 /*styling tabs*/
-.Juices_tab ,.coffees_tab {
+.Juices_tab,
+.coffees_tab {
     background-color: var(--primary-color);
     color: var(--black-color);
     padding: 0.6rem;
@@ -211,37 +212,46 @@ button:hover {
     cursor: pointer;
     transition: var(--transition) ease-in;
 }
-.active_tab{
+
+.active_tab {
     background-color: var(--black-color);
     color: var(--primary-color);
     transform: scale(1.03);
 }
-.menu_visibility{
-   display: none;
+
+.menu_visibility {
+    display: none;
 }
 
 /*coffee product styling*/
-.coffee_products{
+.coffee_products {
     display: flex;
     justify-content: space-around;
     margin-top: 1rem;
     padding: 2rem;
     border-radius: 0 30px 0 30px;
-    transition: opacity 0.6s ease-in ;
-   
+    transition: opacity 0.6s ease-in;
+
 }
-.Juices_products{
+
+.Juices_products {
     position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: opacity var(--transition) ease-in ;
+    top: 44%;
+    transform: translate(-50%);
+    width: 52%;
+    transition: opacity var(--transition) ease-in;
+}
+
+.menu_position {
+    position: absolute;
+    left: 34%;
 }
 
 .products_cards {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 1rem;
+    height: 40vh;
     background-color: var(--gray-color);
     padding: 1rem;
     box-shadow: 0 4px 6px var(--box-shadow);
@@ -270,7 +280,9 @@ button:hover {
 
 .product_sale {
     position: relative;
+    left: 8%;
     width: 30%;
+    height: auto;
     background-color: var(--gray-color);
     color: var(--font-color);
     height: auto;
@@ -278,6 +290,7 @@ button:hover {
     padding: 1rem;
 
 }
+
 
 .product_properties {
     display: flex;
@@ -307,30 +320,36 @@ button:hover {
     border-radius: 50%;
 }
 
-.sale_hide {
-    display: none;
+.NoProductFound {
+    text-align: center;
+    color: red;
+    font-size: 20px;
 }
+
 
 .product_sale .day_End button {
     position: absolute;
     top: 0;
     right: 0;
     border-radius: 0 20px 0 30px;
-    height: 3rem;
+    height: 2.6rem;
 }
+
 .product_sale .cancel_sale button {
     position: absolute;
     top: 0;
-    left:0 ;
+    left: 0;
     background-color: red;
     width: 90px;
-    border-radius:  20px 0 30px 0;
-    height: 3rem;
+    border-radius: 20px 0 30px 0;
+    height: 2.6rem;
 }
-.product_sale .cancel_sale button:hover{
+
+.product_sale .cancel_sale button:hover {
     color: var(--font-color);
 }
-.cancel_btn_visibility{
+
+.cancel_btn_visibility {
     display: none;
 }
 
@@ -339,4 +358,36 @@ button:hover {
     background-color: var(--primary-color);
     color: var(--black-color);
     padding: 5px;
+}
+
+
+/*STATISTICS PAGE */
+#statistics {
+    background-image: linear-gradient(rgba(104, 100, 91, 0.9), rgba(255, 162, 3, 0.9)),
+        url(cafe_images/Hero_cofe.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    position: relative;
+}
+
+.statistics_box {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 40px;
+    background-color: rgba(61, 59, 56, 0.4);
+    height: 80vh;
+    border-radius: var(--border-radius);
+}
+
+#daily_total_element h3 {
+   color: #ffffff;
+   font-size: 2rem;
+   background-color: var(--primary-color);
+   padding: 20px;
+   border-radius: var(--border-radius);
+   box-shadow: var(--box-shadow);
+
 }
