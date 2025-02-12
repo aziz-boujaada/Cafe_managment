@@ -61,6 +61,9 @@ h2 {
 p {
     font-family: var(--font-P);
 }
+p::selection {
+    background-color: var(--primary-color);
+}
 
 a {
     text-decoration: none;
@@ -327,11 +330,18 @@ button:hover {
 }
 
 
-.product_sale .day_End button {
+.product_sale .cash button {
+    position: absolute;
+    top:  0;
+    right: 0;
+    border-radius: 0 20px 0 30px ;
+    height: 2.6rem;
+}
+.product_sale .Day_End button {
     position: absolute;
     top: 0;
-    right: 0;
-    border-radius: 0 20px 0 30px;
+    left: 0;
+    border-radius: 20px 0 30px 0;
     height: 2.6rem;
 }
 
@@ -340,7 +350,7 @@ button:hover {
     top: 0;
     left: 0;
     background-color: red;
-    width: 90px;
+    width: 40%;
     border-radius: 20px 0 30px 0;
     height: 2.6rem;
 }

@@ -1,4 +1,4 @@
-import { getDailyTotal } from "./data.js";
+import { getDailyTotal , GETProductStatistics } from "./data.js";
 document.addEventListener("DOMContentLoaded", () => {
     console.log("its work ")
     
@@ -17,4 +17,16 @@ document.addEventListener("DOMContentLoaded", () => {
      } else {
        daily_total_element.innerHTML = `<h3>No sales</h3>`;
      }
+
+
+
+
+     const products_statistics_element=document.querySelector(".products_statistics")
+     const ProductStatistics = GETProductStatistics();
+     if(ProductStatistics!==null){
+         products_statistics_element.innerHTML= `<div> Daily total is: ${ProductStatistics}</div>`;
+     }else{
+         products_statistics_element.innerHTML = `<h3>No sales</h3>`;
+     }
    });
+
