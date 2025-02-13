@@ -13,17 +13,17 @@ export function saveDailyTotal(day_total){
 export function SAVEProductStatistics(Products){
   const ProductsData = Products.map(Product =>({
     name:Product.name,
-    quantity:Product.quantity,
-    total: (parseFloat(Product.price) * (Product.quantity)).toFixed(2),
+    quantity:parseInt(Product.quantity),
+    total: (parseFloat(Product.price)) * parseInt(Product.quantity).toFixed(2),
   }));
   localStorage.setItem("Products" , JSON.stringify(ProductsData));
-  console.log("data saved");
+  console.log("Product statistics have been saved:", ProductsData);
 }
 
 export function GETProductStatistics(){
-  const ProductsData = localStorage.getItem("Products")
+  const ProductsData = JSON.parse(localStorage.getItem("Products"))
   if(ProductsData==null){
     return null
   }
-  return JSON.parse(ProductsData);
+  return ProductsData;
 }

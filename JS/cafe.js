@@ -166,13 +166,14 @@ function NoProductMsg() {
 
 
 // display function
-function AddToSales() {
-  product_image.innerHTML = "";
-  product_name.innerHTML = "";
-  product_price.innerHTML = "";
-  product_quantity.innerHTML = "";
-  let hasProduct = false;
 
+function AddToSales() {
+    product_image.innerHTML = "";
+    product_name.innerHTML = "";
+    product_price.innerHTML = "";
+    product_quantity.innerHTML = "";
+   let hasProduct = false;
+    
   Products.forEach((product) => {
     if (product.quantity > 0) {
       hasProduct = true;
@@ -236,6 +237,7 @@ UpgradeQuantity();
 AddToSales();
 //GET DATA FROM DATA.JS FILE
 import { saveDailyTotal  } from "./data.js";
+import { SAVEProductStatistics } from "./data.js";
 // Function to calculate the total day 
 
 let day_total = 0;
@@ -252,20 +254,34 @@ function CalculateTotalDay() {
     Products.forEach((product) => {
       const price = parseFloat(product.price);
       day_total += price * product.quantity;
+      
     });
     //display 
     total_display.innerHTML = `<h3>Total : ${day_total.toFixed(2)} DH </h3>`;
     console.log("Saving daily total:", day_total);
+ 
     saveDailyTotal(day_total);
+    product_image.innerHTML = "";
+    product_name.innerHTML = "";
+    product_price.innerHTML = "";
+    product_quantity.innerHTML = "";
+    NoProductMsg();
+    total_display.innerHTML="";
   });
   Day_End_button.addEventListener('click' , ()=>{
-    alert(`total saved is : ${day_total.toFixed(2)} DH✅`);
-    setTimeout(() => {
-      window.location.href = "statistics.html";
-     
-    }, 500);
-  });
-}
+    const GoToSatistics = confirm(` Are You share to Save Total and GO to Statistics page ${day_total.toFixed(2)}DH`)
+    if(GoToSatistics){
+
+      setTimeout(() => {
+        window.location.href = "statistics.html";
+       
+      }, 500);
+  
+      SAVEProductStatistics(Products);
+    }
+    });
+  }
+
 
 CalculateTotalDay();
 
