@@ -164,8 +164,6 @@ function NoProductMsg() {
 }
 
 
-import { SAVEProductStatistics} from "./data.js";
-SAVEProductStatistics(Products);
 
 // display function
 function AddToSales() {

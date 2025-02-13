@@ -14,14 +14,16 @@ export function SAVEProductStatistics(Products){
   const ProductsData = Products.map(Product =>({
     name:Product.name,
     quantity:Product.quantity,
-    total:parseFloat(prod)
+    total: (parseFloat(Product.price) * (Product.quantity)).toFixed(2),
   }));
+  localStorage.setItem("Products" , JSON.stringify(ProductsData));
+  console.log("data saved");
 }
 
 export function GETProductStatistics(){
-  const product_statistics = localStorage.getItem("ProductStatistics")
-  if(product_statistics==null){
+  const ProductsData = localStorage.getItem("Products")
+  if(ProductsData==null){
     return null
   }
-  return product_statistics;
+  return JSON.parse(ProductsData);
 }
