@@ -21,24 +21,48 @@ document.addEventListener("DOMContentLoaded", () => {
     daily_total_element.innerHTML = `<h3>No sales</h3>`;
   }
 
-  const products_statistics_element = document.querySelector(
-    ".products_statistics"
-  );
+  const products_statistics_element = document.querySelector(".products_statistics");
+
   const ProductStatistics = GETProductStatistics();
 
-  if (ProductStatistics !== null && ProductStatistics.length > 0) {
-    products_statistics_element.innerHTML = `<h3>Product statistics :</h3>
-            <ul>
-              ${ProductStatistics.map(
-                (product) =>
-                  `<li>
-                  <strong>${product.name}</strong> | Quantity: ${product.quantity} | Total: ${product.total}DH,
-               </li>`
-              ).join("")}
-            </ul>
-         `;
-    console.log("Product statistics have been saved:", ProductStatistics);
-  } else {
-    products_statistics_element.innerHTML = `<h3>No sales</h3>`;
-  }
+    if (ProductStatistics !== null && ProductStatistics.length > 0) {
+      // Create a list of product statistics
+      products_statistics_element.innerHTML = `<h3>Product statistics :</h3>
+        <ul>
+          ${ProductStatistics.map(
+            (product) =>
+              `<li>
+                <strong>${product.name}</strong> | Quantity: ${product.quantity} | Total: ${product.total} DH
+              </li>`
+          ).join("")}
+        </ul>`;
+      console.log("Product statistics have been saved:", ProductStatistics);
+    } else {
+      products_statistics_element.innerHTML = `<h3>No product statistics available</h3>`;
+    }
+   
+PrintStatistics();
 });
+
+function GetCurrentDateAndTime(){
+  const now = new Date();
+  const date = now.toLocaleDateString();
+  const time = now.toLocaleTimeString();
+  return `${date} ${time}`
+}
+
+function PrintStatistics(){
+  const PrintButton = document.getElementById("print_statistics")
+  const StatisticsSection = document.getElementById("statistics");
+  PrintButton.addEventListener('click' , ()=>{
+    const DateTime = GetCurrentDateAndTime();
+    const datetimePosition = document.createElement("div");
+    datetimePosition.style.textAlign="center";
+    datetimePosition.style.marginTop="20px";
+    datetimePosition.innerHTML= ` <p>${DateTime}</p>`
+    StatisticsSection.appendChild(datetimePosition)
+
+    window.print()
+    StatisticsSection.removeChild(datetimePosition);
+  })
+}

@@ -1,4 +1,3 @@
-
 console.log("js file loaded");
 /* control mobile navbar */
 const bars_icon = document.querySelector(".open_nav");
@@ -125,7 +124,7 @@ const Products = [
 ];
 
 //global variables
-const Product_card = document.querySelectorAll(".product_card");
+let Product_card = document.querySelectorAll(".product_card");
 const product_properties = document.querySelector(".product_properties");
 const product_sale = document.querySelector(".product_sale");
 const product_image = document.querySelector(".product_image");
@@ -134,7 +133,6 @@ const product_price = document.querySelector(".product_price");
 const product_quantity = document.querySelector(".product_quantity");
 const noProduct = document.querySelector(".NoProductFound");
 const cancel_sale = document.querySelector(".cancel_sale");
-
 
 // switch between Menu categories
 function SwitchMenuTabs() {
@@ -163,34 +161,11 @@ function NoProductMsg() {
   noProduct.innerHTML = "No Products found";
 }
 
+//GET DATA FROM DATA.JS FILE
+import { saveDailyTotal } from "./data.js";
+import { SAVEProductStatistics  } from "./data.js";
 
-
-// display function
-
-function AddToSales() {
-    product_image.innerHTML = "";
-    product_name.innerHTML = "";
-    product_price.innerHTML = "";
-    product_quantity.innerHTML = "";
-   let hasProduct = false;
-    
-  Products.forEach((product) => {
-    if (product.quantity > 0) {
-      hasProduct = true;
-      product_image.innerHTML += `<img src=" ${product.img}"/>`;
-      product_name.innerHTML += `<h3> ${product.name}</h3>`;
-      product_price.innerHTML += `<h3> ${product.price} dh</h3>`;
-      product_quantity.innerHTML += `<h3> ${product.quantity}</h3>`;
-      noProduct.innerHTML = "";
-    }
-  });
-  if (!hasProduct) {
-    NoProductMsg();
-  }
- 
-}
-
-//cancel sale a product  
+//cancel sale a product
 function CancelSale(index) {
   const product = Products[index];
   if (!product || !cancel_sale || !product_properties) return;
@@ -221,8 +196,10 @@ function CancelSale(index) {
 
 //upgrade quantity of each product when clicked on his card
 function UpgradeQuantity() {
-  Product_card.forEach((Product_card, index) => {
-    Product_card.addEventListener("click", () => {
+   let Product_card = Array.from(document.querySelectorAll(".product_card"));
+
+  Product_card.forEach((card, index) => {
+    card.addEventListener("click", () => {
       const product = Products[index];
       product.quantity++;
       if (product.quantity > 0) {
@@ -233,12 +210,32 @@ function UpgradeQuantity() {
   });
 }
 
-UpgradeQuantity();
-AddToSales();
-//GET DATA FROM DATA.JS FILE
-import { saveDailyTotal  } from "./data.js";
-import { SAVEProductStatistics } from "./data.js";
-// Function to calculate the total day 
+
+
+
+function AddToSales() {
+  product_image.innerHTML = "";
+  product_name.innerHTML = "";
+  product_price.innerHTML = "";
+  product_quantity.innerHTML = "";
+  let hasProduct = false;
+
+  Products.forEach((product) => {
+    if (product.quantity > 0) {
+      hasProduct = true;
+      product_image.innerHTML += `<img src=" ${product.img}"/>`;
+      product_name.innerHTML += `<h3> ${product.name}</h3>`;
+      product_price.innerHTML += `<h3> ${product.price} dh</h3>`;
+      product_quantity.innerHTML += `<h3> ${product.quantity}</h3>`;
+      noProduct.innerHTML = "";
+    }
+  });
+  if (!hasProduct) {
+    NoProductMsg();
+  }
+}
+
+// Function to calculate the total day
 
 let day_total = 0;
 function CalculateTotalDay() {
@@ -250,39 +247,48 @@ function CalculateTotalDay() {
     return;
   }
   cash.addEventListener("click", () => {
-    day_total = 0;
+    let totalForTheDay= 0;
     Products.forEach((product) => {
       const price = parseFloat(product.price);
-      day_total += price * product.quantity;
-      
+      totalForTheDay += price * product.quantity;
     });
-    //display 
-    total_display.innerHTML = `<h3>Total : ${day_total.toFixed(2)} DH </h3>`;
+    day_total += totalForTheDay;
     console.log("Saving daily total:", day_total);
- 
     saveDailyTotal(day_total);
-    product_image.innerHTML = "";
-    product_name.innerHTML = "";
-    product_price.innerHTML = "";
-    product_quantity.innerHTML = "";
+    alert(`SALES HAS BEEN SAVED ${day_total} DH`);
+    
+    //display
+    total_display.innerHTML = `<h3>Total : ${totalForTheDay.toFixed(2)} DH </h3>`;
+    SAVEProductStatistics(Products);
+    ResetDisplay();
     NoProductMsg();
-    total_display.innerHTML="";
   });
-  Day_End_button.addEventListener('click' , ()=>{
-    const GoToSatistics = confirm(` Are You share to Save Total and GO to Statistics page ${day_total.toFixed(2)}DH`)
-    if(GoToSatistics){
+    Day_End_button.addEventListener("click", () => {
+      const GoToSatistics = confirm(
+        ` Are You share to Save Total and GO to Statistics page ${day_total.toFixed(
+          2
+        )}DH`
+      );
+      if (GoToSatistics) {
+        setTimeout(() => {
+          window.location.href = "statistics.html";
+        }, 500); 
+        
+      }
+  });
+ 
 
-      setTimeout(() => {
-        window.location.href = "statistics.html";
-       
-      }, 500);
-  
-      SAVEProductStatistics(Products);
-    }
-    });
-  }
+}
 
+// display function
+function ResetDisplay() {
+  Products.forEach((product)=>{
+    product.quantity=0;
+  })
+  AddToSales();
+}
 
+UpgradeQuantity();
+AddToSales();
 CalculateTotalDay();
-
 
