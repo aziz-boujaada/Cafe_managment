@@ -1,4 +1,7 @@
-console.log("js file loaded");
+//GET DATA FROM DATA.JS FILE
+import { saveDailyTotal } from "./data.js";
+import { SAVEProductStatistics } from "./data.js";
+
 /* control mobile navbar */
 const bars_icon = document.querySelector(".open_nav");
 const Close_icon = document.querySelector(".close_nav");
@@ -123,23 +126,28 @@ const Products = [
   },
 ];
 
-//global variables
-let Product_card = document.querySelectorAll(".product_card");
-const product_properties = document.querySelector(".product_properties");
-const product_sale = document.querySelector(".product_sale");
+//GLOBAL VARIABLES
+   // display variables
 const product_image = document.querySelector(".product_image");
 const product_name = document.querySelector(".product_name");
 const product_price = document.querySelector(".product_price");
 const product_quantity = document.querySelector(".product_quantity");
 const noProduct = document.querySelector(".NoProductFound");
+   // menu switching variables
+const CoffeeTab = document.querySelector(".coffees_tab");
+const coffeeMenu = document.querySelector(".coffee_products");
+const JusTab = document.querySelector(".Juices_tab");
+const JuicesMenu = document.querySelector(".Juices_products");
+   // cancel sale variables
 const cancel_sale = document.querySelector(".cancel_sale");
+const product_properties = document.querySelector(".product_properties");
+    // cash and calculate variables
+ const cash = document.querySelector(".cash");
+ const Day_End_button = document.querySelector(".Day_End");
+ const total_display = document.querySelector(".total_display");
 
 // switch between Menu categories
 function SwitchMenuTabs() {
-  const CoffeeTab = document.querySelector(".coffees_tab");
-  const coffeeMenu = document.querySelector(".coffee_products");
-  const JusTab = document.querySelector(".Juices_tab");
-  const JuicesMenu = document.querySelector(".Juices_products");
 
   CoffeeTab.addEventListener("click", () => {
     coffeeMenu.classList.remove("menu_visibility");
@@ -156,17 +164,9 @@ function SwitchMenuTabs() {
 }
 SwitchMenuTabs();
 
-// no product message in sales area
-function NoProductMsg() {
-  noProduct.innerHTML = "No Products found";
-}
-
-//GET DATA FROM DATA.JS FILE
-import { saveDailyTotal } from "./data.js";
-import { SAVEProductStatistics  } from "./data.js";
-
 //cancel sale a product
 function CancelSale(index) {
+
   const product = Products[index];
   if (!product || !cancel_sale || !product_properties) return;
 
@@ -196,8 +196,8 @@ function CancelSale(index) {
 
 //upgrade quantity of each product when clicked on his card
 function UpgradeQuantity() {
-   let Product_card = Array.from(document.querySelectorAll(".product_card"));
 
+  let Product_card = Array.from(document.querySelectorAll(".product_card"));
   Product_card.forEach((card, index) => {
     card.addEventListener("click", () => {
       const product = Products[index];
@@ -210,9 +210,12 @@ function UpgradeQuantity() {
   });
 }
 
+// no product message in sales area
+function NoProductMsg() {
+  noProduct.innerHTML = "No Products found";
+}
 
-
-
+// Display of Sale Zone
 function AddToSales() {
   product_image.innerHTML = "";
   product_name.innerHTML = "";
@@ -236,59 +239,66 @@ function AddToSales() {
 }
 
 // Function to calculate the total day
-
 let day_total = 0;
 function CalculateTotalDay() {
-  const cash = document.querySelector(".cash");
-  const Day_End_button = document.querySelector(".Day_End");
-  const total_display = document.querySelector(".total_display");
+ 
   if (!total_display || !Day_End_button || !Array.isArray(Products)) {
     console.error("elements not found");
     return;
   }
+  // calculate after click on cash button
   cash.addEventListener("click", () => {
-    let totalForTheDay= 0;
+    let totalForTheDay = 0;
     Products.forEach((product) => {
       const price = parseFloat(product.price);
       totalForTheDay += price * product.quantity;
     });
-    day_total += totalForTheDay;
+    day_total += totalForTheDay; // add total of old sales to new sales after clear display
+    //Saving Day Total
     console.log("Saving daily total:", day_total);
-    saveDailyTotal(day_total);
-    alert(`SALES HAS BEEN SAVED ${day_total} DH`);
+    saveDailyTotal(day_total); //saving in Data.js File
+      
+    // message after saving day total 
+    const message = document.createElement("div")
+    message.classList.add("message_success")
+    message.innerHTML = `SALES TOTAL : ${day_total} DH HAS BEEN SAVED SUCCESSFULLY`;
+    document.body.appendChild(message);
+    setTimeout(() => message.remove() ,5000);
     
-    //display
-    total_display.innerHTML = `<h3>Total : ${totalForTheDay.toFixed(2)} DH </h3>`;
-    SAVEProductStatistics(Products);
+
+    //display total 
+    total_display.innerHTML = `<h3>Total : ${totalForTheDay.toFixed(
+      2
+    )} DH </h3>`;
+    SAVEProductStatistics(Products); //saving in data.js fle
     ResetDisplay();
     NoProductMsg();
   });
-    Day_End_button.addEventListener("click", () => {
-      const GoToSatistics = confirm(
-        ` Are You share to Save Total and GO to Statistics page ${day_total.toFixed(
-          2
-        )}DH`
-      );
-      if (GoToSatistics) {
-        setTimeout(() => {
-          window.location.href = "statistics.html";
-        }, 500); 
-        
-      }
-  });
- 
 
+  // going to statistics page after click on DAY END button
+  Day_End_button.addEventListener("click", () => {
+    const GoToSatistics = confirm(
+      ` Are You share to Save Total and GO to Statistics page ${day_total.toFixed(
+        2
+      )}DH`
+    );
+    if (GoToSatistics) {
+      setTimeout(() => {
+        window.location.href = "statistics.html";
+      }, 500);
+    }
+  });
 }
 
-// display function
+//  Reset display function
 function ResetDisplay() {
-  Products.forEach((product)=>{
-    product.quantity=0;
-  })
+  Products.forEach((product) => {
+    product.quantity = 0;
+  });
   AddToSales();
 }
 
+//General Functions
 UpgradeQuantity();
 AddToSales();
 CalculateTotalDay();
-

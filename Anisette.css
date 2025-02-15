@@ -367,6 +367,29 @@ button:hover {
   padding: 5px;
 }
 
+/*save message alert*/
+.message_success{
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: green;
+  color: var(--font-color);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  opacity: 1;
+  transition:opacity 3s ease-in , transform 0.5s ease-in;
+}
+.message_success.show{
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.message_success.hide{
+  opacity: 0;
+  transform: translateX(-50%) translateY(-50px);
+}
+
 /*STATISTICS PAGE */
 #statistics {
   background-image: linear-gradient(
