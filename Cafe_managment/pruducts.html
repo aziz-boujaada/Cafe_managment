@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--meta-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Cafe Anisette management system">
+    <meta name="keywords" content="cafe,  cafe anisette, cafe anisette management system, cafe anisette management">
+    <meta name="author" content="Aiz Ze Boujaada">
+
+    <!--links-->
+    <!--link to css file-->
+    <link rel="stylesheet" href="Anisette.css">
+    <link rel="stylesheet" href="responsive.css">
+    <!--link to font awesome to get icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css ">
+    <!--fav icon -->
+    <link rel="icon" href="ticket_images/icons8-lion-96.png" type="image/png">
+
+    <!--fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+
+    <!--favicon-->
+    <link rel="icon" href="cafe_images/cafe_favicon.png" type="image/png">
+
+    <title>Cafe Anisette | management system</title>
+</head>
+
+<!--HEADER-->
+<header id="header">
+    <!--cafe logo-->
+    <div class="cafe_logo">
+        <img src="cafe_images/cafe_anisette_logo.png" alt="cafe anisette logo ">
+        <span>Cafe Anisette</span>
+    </div>
+    <!--open mobile navbar-->
+    <div class="mobile_navbar">
+        <div class="open_nav">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
+    <!--navigation list-->
+    <div class="nav_list show_list">
+        <!--nav list -->
+        <ul>
+            <!--coles mobile navbar-->
+            <div class="mobile_navbar">
+                <div class="close_nav">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <li><a href="index.html">About</a></li>
+            <li><a href="pruducts.html" class="active">Products</a></li>
+            <li><a href="statistics.html" id="statistics_link">Statistics</a></li>
+
+        </ul>
+    </div>
+</header>
+
+<body>
+    <main>
+        <!--PRODUCTS SECTION-->
+        <section id="products">
+            <!--section title-->
+            <div class="Anisette_menu">
+                <div class="section_title">
+                    <h1>Anisette Menu</h1>
+                </div>
+                <!--Menu category-->
+                <div class="Anisette_category">
+                    <!--coffees menu-->
+                    <div class="tabs">
+                        <div class="coffees_tab active_tab">
+                            <h3>coffees</h3>
+                        </div>
+
+                    </div>
+                    <!--Jus Menu-->
+                    <div class="tabs">
+                        <div class="Juices_tab">
+                            <h3>Jus</h3>
+                        </div>
+                    </div>
+                </div>
+                <!--end of category part-->
+                <!--coffee products-->
+                <div class="coffee_products">
+                    <div class="products_cards">
+                        <div class="product_card">
+                            <img src="cafe_images/cafe products/cafe_creme.jpg" alt="cafe creme image">
+                            <h4>cafe Creme</h4>
+                        </div>
+                        <div class="product_card">
+                            <img src="cafe_images/cafe products/black-coffee.jpg" alt="cafe creme image">
+                            <h4>black coffee</h4>
+                        </div>
+                        <div class="product_card">
+                            <img src="cafe_images/cafe products/black_coffee.jpeg" alt="cafe creme image">
+                            <h4>Normal coffee</h4>
+                        </div>
+                        <div class="product_card">
+                            <img src="cafe_images/cafe products/milk_coffee.jpeg" alt="cafe creme image">
+                            <h4>Light coffee</h4>
+                        </div>
+                        <div class="product_card">
+                            <img src="cafe_images/cafe products/caffe-italy.jpg" alt="cafe creme image">
+                            <h4>Italian coffee</h4>
+                        </div>
+                        <div class="product_card">
+                            <img src="cafe_images/cafe products/cappuccino.jpeg" alt="cafe creme image">
+                            <h4>cappuccino</h4>
+                        </div>
+                        <div class="product_card">
+                            <img src="cafe_images/cafe products/cold_coffee.jpg" alt="cafe creme image">
+                            <h4>Cold coffee</h4>
+                        </div>
+                        <div class="product_card">
+                            <img src="cafe_images/cafe products/choclate_coffee.jpg" alt="cafe creme image">
+                            <h4>Chocolate coffee</h4>
+                        </div>
+                        <div class="product_card">
+                            <img src="cafe_images/cafe products/Americano-coffee.jpg" alt="cafe creme image">
+                            <h4>Americano Coffee</h4>
+                        </div>
+                        <div class="product_card">
+                            <img src="cafe_images/cafe products/espresso.jpeg" alt="cafe creme image">
+                            <h4>Espresso</h4>
+                        </div>
+                    </div>
+                    <!--aside to show the product after click on-->
+                    <div class="product_sale sale_hide">
+                       
+                        <div class="product_properties" id="sale_zone">
+
+                            <div class="product_image"></div>
+                            <div class="product_name"></div>
+                            <div class="product_price"></div>
+                            <div class="product_quantity"></div>
+                        </div>
+                        <div class="NoProductFound"></div>
+                        <div class="cash">
+                            <button>Cash</button>
+                        </div>
+                        <div class="Day_End">
+                            <button>End Day</button>
+                        </div>
+                        
+                        <div class="cancel_sale cancel_btn_visibility">
+                            <button>cancel</button>
+                        </div>
+                        <div class="total_display"></div>
+                    </div>
+                </div>
+
+                <!--Juices products-->
+
+                <div class="Juices_products menu_visibility menu_position">
+                    <div class="products_cards">
+                        <div class="product_card">
+                            <img src="cafe_images/cafe products/orange_jus.jpg" alt="orange_jus photo">
+                            <h4>Orange Jus</h4>
+                        </div>
+                        <div class="product_card">
+                            <img src="cafe_images/cafe products/banana-juice.jpg" alt="cafe creme image">
+                            <h4>banana Jus</h4>
+                        </div>
+                        <div class="product_card">
+                            <img src="cafe_images/cafe products/avocado_jus.jpeg" alt="cafe creme image">
+                            <h4>Avocado Jus</h4>
+                        </div>
+                        <div class="product_card">
+                            <img src="cafe_images/cafe products/panache_Jus.jpeg" alt="cafe creme image">
+                            <h4>panache Jus</h4>
+                        </div>
+                        <div class="product_card">
+                            <img src="cafe_images/cafe products/avocado_jus.jpeg" alt="cafe creme image">
+                            <h4>Italian coffee</h4>
+                        </div>
+                        <div class="product_card">
+                            <img src="cafe_images/cafe products/avocado_jus.jpeg" alt="cafe creme image">
+                            <h4>cappuccino</h4>
+                        </div>
+                        <div class="product_card">
+                            <img src="cafe_images/cafe products/avocado_jus.jpeg" alt="cafe creme image">
+                            <h4>Cold coffee</h4>
+                        </div>
+                        <div class="product_card">
+                            <img src="cafe_images/cafe products/avocado_jus.jpeg" alt="cafe creme image">
+                            <h4>Chocolate coffee</h4>
+                        </div>
+                        <div class="product_card">
+                            <img src="cafe_images/cafe products/avocado_jus.jpeg" alt="cafe creme image">
+                            <h4>cafe Creme</h4>
+                        </div>
+                        <div class="product_card">
+                            <img src="cafe_images/cafe products/avocado_jus.jpeg" alt="cafe creme image">
+                            <h4>cafe Creme</h4>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="JS/cafe.js" defer></script>
+</body>
+
+</html>

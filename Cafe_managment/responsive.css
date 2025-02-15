@@ -1,0 +1,93 @@
+@media screen and (min-width:320px) and (max-width:768px){
+
+    :root {
+    
+        /* website colors*/
+        --primary-color: #FABC3F;
+        --secondary-color: #db7c00;
+        --bg-color: #ffffff;
+        --heading-color: #D8A25E;
+        --font-color: aliceblue;
+        --black-color: rgb(1, 1, 1);
+        --gray-color: #333333;
+    
+        /* website border radius*/
+        --border-radius: 20px;
+    
+        /* website box shadow*/
+        --box-shadow: rgba(58, 58, 61, 0.6);
+    
+        /* website fonts*/
+        --fon-header: "Parkinsans";
+        --font-P: "Ubuntu";
+        --extra-font: "Roboto";
+    
+        /* website transition*/
+        --transition: 0.4s;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    section{
+        padding: 1rem;
+    }
+    
+
+    /*nav bar */
+    .mobile_navbar{
+        display: block;
+    }
+    .show_list{
+      display: none;
+    }
+     
+    #header {
+        margin: 0;
+        background-color: var(--bg-color);
+    }
+    .nav_list ul{
+        flex-direction: column;
+        background-color: var(--bg-color);
+        width: 150px;
+        padding: 20px; 
+        margin-top: 15rem;
+        margin-right: 0;
+        border-radius: 0 0 0 40px; 
+        transition: all var(--transition) ease-in-out;  
+    }
+    .open_nav i{
+        font-size: 22px;
+        color: var(--primary-color);
+        text-align: center;
+       padding:1rem 2rem 0 6rem ;
+    }
+    .mobile_navbar .close_nav i{
+        font-size: 2rem;
+        color: var(--primary-color);
+        padding-right: 6rem;
+    }
+
+ /*ABOUT*/
+    
+
+    .about_container{
+        padding-top: 3rem;
+       
+    }
+    .about_container h1{
+        font-size: 2.2rem;
+        color: var(--black-color);
+    }
+    .about_container h1 span{
+        font-size: 2rem;
+        color: var(--primary-color);
+    }
+    .about_container p{
+        font-size: 1.1rem;
+        padding-top: 1rem;
+        line-height: 2rem;
+        font-weight: 500;
+    }
+}
+
