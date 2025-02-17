@@ -46,7 +46,7 @@ export function SAVEProductStatistics(Products){
 
     });
   });
-  localStorage.setItem("Products" , JSON.stringify(NewProductData));
+  localStorage.setItem("Products" , JSON.stringify(NewProductData));  
   console.log("Product statistics have been saved:", NewProductData);
 }
 

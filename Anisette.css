@@ -20,7 +20,7 @@
   --extra-font: "Roboto";
 
   /* website transition*/
-  --transition: 0.4s;
+  --transition: 0.7s;
 }
 
 /*general reset*/
@@ -85,7 +85,7 @@ button {
 button:hover {
   background-color: var(--black-color);
   color: var(--primary-color);
-  transform: scale(1.04);
+  transform: scale(1.02);
 }
 
 /*start styling of page*/
@@ -325,6 +325,7 @@ button:hover {
   text-align: center;
   color: red;
   font-size: 20px;
+  font-weight: bold;
 }
 
 .product_sale .cash button {
@@ -368,8 +369,9 @@ button:hover {
 }
 
 /*save message alert*/
-.message_success{
+.message_success {
   position: fixed;
+  z-index: 1000;
   top: 2rem;
   left: 50%;
   transform: translateX(-50%);
@@ -379,13 +381,13 @@ button:hover {
   border-radius: 5px;
   font-size: 16px;
   opacity: 1;
-  transition:opacity 3s ease-in , transform 0.5s ease-in;
+  transition: opacity 3s ease-in, transform 0.5s ease-in;
 }
-.message_success.show{
+.message_success.show {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
-.message_success.hide{
+.message_success.hide {
   opacity: 0;
   transform: translateX(-50%) translateY(-50px);
 }
@@ -417,7 +419,6 @@ button:hover {
 .products_statistics {
   color: #ffffff;
   font-size: 1.5rem;
-  background-color: var(--primary-color);
   padding: 20px;
   border-radius: calc(var(--border-radius) / 2);
   box-shadow: var(--box-shadow);
@@ -427,18 +428,42 @@ button:hover {
   margin: 30px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+ 
+}
+#daily_total_element h3{
+  background-color: #333333;
+  padding: 8px;
+ border-radius: var(--border-radius);
 }
 .products_statistics {
   height: auto;
-  width: 50%;
+  width: auto;
 }
 
-.products_statistics li {
-  font-size: 20px;
-  border-left: 3px solid var(--gray-color);
-  padding: 10px 0 0 10px;
+.products_statistics div {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  gap: 5px;
+  padding-top: 5px;
 }
+.products_statistics li strong {
+  font-size: 20px;
+  width: 200px;
+  text-align: center;
+  background-color: #333333;
+  border-radius: var(--border-radius);
+  padding: 4px;
+}
+.products_statistics li span {
+  font-size: 16px;
+  width: 150px;
+  text-align: center;
+  background-color: #333333;
+  border-radius: var(--border-radius);
+  padding: 4px;
+}
+
 .print_statistics {
   width: 200px;
   height: 50px;
@@ -452,7 +477,7 @@ button:hover {
   body * {
     visibility: hidden;
   }
-  #print_statistics  {
+  #print_statistics {
     display: none;
   }
   #statistics {
@@ -465,20 +490,25 @@ button:hover {
   }
   #statistics * {
     visibility: visible;
-    flex-direction: column;
-    gap: 0;
-    align-items: center;
+    flex-direction: row;
+     align-items: center;
     box-shadow: none;
+    padding: 0;
   }
   #statistics div p {
-    margin-top:0 ;
+    margin-top: 0;
     font-size: 20px;
-   
   }
   #daily_total_element {
-    border:  1px solid black ;
-  }
-  .products_statistics li  {
     border: 1px solid black;
+    font-size: 20px;
+    padding: 16px;
+    text-align: center;
   }
+ 
+  .products_statistics div {
+    border: 1px solid black; 
+    padding: 4px;
+  
+}
 }

@@ -42,12 +42,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (ProductStatistics !== null && ProductStatistics.length > 0) {
       // Create a  HTML list for product statistics
-      products_statistics_element.innerHTML = `<h3>Product statistics :</h3>
+      products_statistics_element.innerHTML = `
         <ul>
           ${ProductStatistics.map(
             (product) =>
               `<li>
-                <strong>${product.name}</strong> | Quantity: ${product.quantity} | Total: ${product.total} DH
+              <div><strong>${product.name}</strong>  <span> Quantity: ${product.quantity}</span><span> Total: ${product.total} DH </span></div>
               </li>`
           ).join("")}
             </ul>`;
@@ -93,7 +93,7 @@ function PrintStatistics() {
     const DateTime = GetCurrentDateAndTime();
     const datetimePosition = document.createElement("div");
     datetimePosition.style.textAlign = "center";
-    datetimePosition.style.marginTop = "20px";
+    datetimePosition.style.marginTop = "0px";
     datetimePosition.innerHTML = ` <p>${DateTime}</p>`;
     StatisticsSection.appendChild(datetimePosition);
 
