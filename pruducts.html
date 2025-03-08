@@ -31,38 +31,38 @@
     <title>Cafe Anisette | management system</title>
 </head>
 
-<!--HEADER-->
-<header id="header">
-    <!--cafe logo-->
-    <div class="cafe_logo">
-        <img src="cafe_images/cafe_anisette_logo.png" alt="cafe anisette logo ">
-        <span>Cafe Anisette</span>
-    </div>
-    <!--open mobile navbar-->
-    <div class="mobile_navbar">
-        <div class="open_nav">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-    </div>
-    <!--navigation list-->
-    <div class="nav_list show_list">
-        <!--nav list -->
-        <ul>
-            <!--coles mobile navbar-->
-            <div class="mobile_navbar">
-                <div class="close_nav">
-                    <i class="fa-solid fa-xmark"></i>
-                </div>
-            </div>
-            <li><a href="index.html">About</a></li>
-            <li><a href="pruducts.html" class="active">Products</a></li>
-            <li><a href="statistics.html" id="statistics_link">Statistics</a></li>
-
-        </ul>
-    </div>
-</header>
 
 <body>
+    <!--HEADER-->
+    <header id="header">
+        <!--cafe logo-->
+        <div class="cafe_logo">
+            <img src="cafe_images/cafe_anisette_logo.png" alt="cafe anisette logo ">
+            <span>Cafe Anisette</span>
+        </div>
+        <!--open mobile navbar-->
+        <div class="mobile_navbar">
+            <div class="open_nav">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <!--navigation list-->
+        <div class="nav_list show_list">
+            <!--nav list -->
+            <ul>
+                <!--coles mobile navbar-->
+                <div class="mobile_navbar">
+                    <div class="close_nav">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+                <li><a href="index.html">About</a></li>
+                <li><a href="pruducts.html" class="active">Products</a></li>
+                <li><a href="statistics.html" id="statistics_link">Statistics</a></li>
+    
+            </ul>
+        </div>
+    </header>
     <main>
         <!--PRODUCTS SECTION-->
         <section id="products">
@@ -90,7 +90,7 @@
                 <!--end of category part-->
                 <!--coffee products-->
                 <div class="coffee_products">
-                    <div class="products_cards">
+                    <div  id="coffee_cards">
                         <div class="product_card">
                             <img src="cafe_images/cafe products/cafe_creme.jpg" alt="cafe creme image">
                             <h4> Creme coffee</h4>
@@ -133,7 +133,7 @@
                         </div>
                     </div>
                     <!--aside to show the product after click on-->
-                    <div class="product_sale sale_hide">
+                    <div class="product_sale sale_zone_visible">
                        
                         <div class="product_properties" id="sale_zone">
 
@@ -155,12 +155,12 @@
                         </div>
                         <div class="total_display"></div>
                     </div>
-                </div>
+                
 
                 <!--Juices products-->
 
-                <div class="Juices_products menu_visibility menu_position">
-                    <div class="products_cards">
+                <div class="Juices_products menu_visibility  menu_position">
+                    <div  id="jus_cards">
                         <div class="product_card">
                             <img src="cafe_images/cafe products/orange_jus.jpg" alt="orange_jus photo">
                             <h4>Orange Jus</h4>
@@ -206,6 +206,7 @@
                 </div>
             </div>
             </div>
+            
         </section>
     </main>
     <script type="module" src="JS/cafe.js" defer></script>

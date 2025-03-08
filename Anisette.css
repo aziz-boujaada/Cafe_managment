@@ -224,7 +224,7 @@ button:hover {
 }
 
 .menu_visibility {
-  display: none;
+display: none;
 }
 
 /*coffee product styling*/
@@ -233,28 +233,26 @@ button:hover {
   justify-content: space-around;
   margin-top: 1rem;
   padding: 2rem;
+  width:100%;
   border-radius: 0 30px 0 30px;
   transition: opacity 0.6s ease-in;
 }
 
 .Juices_products {
   position: absolute;
-  top: 44%;
-  transform: translate(-50%);
-  width: 52%;
+  top: 43%;
+  left: 33%;
+  width:48%;
+  transform: translateX(-50%);
   transition: opacity var(--transition) ease-in;
 }
 
-.menu_position {
-  position: absolute;
-  left: 34%;
-}
-
-.products_cards {
+#coffee_cards,
+#jus_cards {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
-  height: 40vh;
+  height: auto;
   background-color: var(--gray-color);
   padding: 1rem;
   box-shadow: 0 4px 6px var(--box-shadow);
@@ -278,7 +276,6 @@ button:hover {
 
 .product_card h4 {
   color: var(--font-color);
-  font-family: var(--font-P);
 }
 
 .product_sale {
@@ -407,6 +404,7 @@ button:hover {
 
 .statistics_box {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   gap: 40px;
   background-color: rgba(61, 59, 56, 0.4);
@@ -422,18 +420,17 @@ button:hover {
   padding: 20px;
   border-radius: calc(var(--border-radius) / 2);
   box-shadow: var(--box-shadow);
-  max-width: 40%;
+  width: 30%;
   min-width: 300px;
-  height: 30vh;
+  height: auto;
   margin: 30px;
   display: flex;
   flex-direction: column;
- 
 }
-#daily_total_element h3{
+#daily_total_element h3 {
   background-color: #333333;
   padding: 8px;
- border-radius: var(--border-radius);
+  border-radius: var(--border-radius);
 }
 .products_statistics {
   height: auto;
@@ -491,7 +488,7 @@ button:hover {
   #statistics * {
     visibility: visible;
     flex-direction: row;
-     align-items: center;
+    align-items: center;
     box-shadow: none;
     padding: 0;
   }
@@ -505,10 +502,9 @@ button:hover {
     padding: 16px;
     text-align: center;
   }
- 
+
   .products_statistics div {
-    border: 1px solid black; 
+    border: 1px solid black;
     padding: 4px;
-  
-}
+  }
 }

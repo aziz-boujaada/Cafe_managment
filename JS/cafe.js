@@ -135,8 +135,8 @@ const product_quantity = document.querySelector(".product_quantity");
 const noProduct = document.querySelector(".NoProductFound");
    // menu switching variables
 const CoffeeTab = document.querySelector(".coffees_tab");
-const coffeeMenu = document.querySelector(".coffee_products");
 const JusTab = document.querySelector(".Juices_tab");
+const coffeeMenu = document.querySelector(".coffee_products");
 const JuicesMenu = document.querySelector(".Juices_products");
    // cancel sale variables
 const cancel_sale = document.querySelector(".cancel_sale");
@@ -264,7 +264,6 @@ function CalculateTotalDay() {
     message.innerHTML = `SALES TOTAL : ${day_total} DH HAS BEEN SAVED SUCCESSFULLY`;
     document.body.appendChild(message);
     setTimeout(() => message.remove() ,5000);
-    
 
     //display total 
     total_display.innerHTML = `<h3>Total : ${totalForTheDay.toFixed(
